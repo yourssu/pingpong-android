@@ -14,7 +14,7 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     listOf(
         iosArm64(),
         iosSimulatorArm64()
@@ -24,7 +24,7 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
         androidMain.dependencies {
             implementation(compose.preview)
@@ -37,8 +37,15 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodelCompose)
-            implementation(libs.androidx.lifecycle.runtimeCompose)
+
+            implementation(libs.androidx.lifecycle.viewmodel.compose)
+            implementation(libs.androidx.lifecycle.runtime.compose)
+
+            implementation(projects.core.designsystem)
+            implementation(projects.core.model)
+            implementation(projects.core.ui)
+
+            implementation(projects.feature.settings.impl)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -76,4 +83,3 @@ android {
 dependencies {
     debugImplementation(compose.uiTooling)
 }
-
