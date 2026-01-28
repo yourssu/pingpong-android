@@ -26,6 +26,8 @@ dependencyResolutionManagement {
             }
         }
         mavenCentral()
+        // 카카오 라이브러리 주소
+        maven { url = uri("https://devrepo.kakao.com/nexus/content/groups/public/") }
     }
 }
 
