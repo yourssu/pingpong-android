@@ -36,12 +36,11 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
-            //카카오 소셜 로그인
-            implementation("com.kakao.sdk:v2-user:2.20.1")
-            // Android Credential Manager (구글 소셜 로그인)
-            implementation("androidx.credentials:credentials:1.2.2")
-            implementation("androidx.credentials:credentials-play-services-auth:1.2.2")
-            implementation("com.google.android.libraries.identity.googleid:googleid:1.1.1")
+            // 카카오 소셜 로그인
+            implementation(libs.kakao.user)
+
+            // Android Credential Manager (구글 소셜 로그인) - 번들 사용 시
+            implementation(libs.bundles.social.login.google)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -59,8 +58,8 @@ kotlin {
             implementation(projects.core.ui)
 
             implementation(projects.feature.settings.impl)
-            // Coroutines for async flow
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+            // Coroutines (버전 카탈로그 사용)
+            implementation(libs.kotlinx.coroutines.core)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -84,6 +83,10 @@ android {
         manifestPlaceholders["KAKAO_NATIVE_APP_KEY"] = localProperties.getProperty("KAKAO_NATIVE_APP_KEY") ?: ""
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        // local.properties에서 읽어와서 BuildConfig에 등록
+        val googleClientId = localProperties.getProperty("GOOGLE_SERVER_CLIENT_ID") ?: ""
+        buildConfigField("String", "GOOGLE_SERVER_CLIENT_ID", "\"$googleClientId\"")
+        manifestPlaceholders["GOOGLE_SERVER_CLIENT_ID"] = googleClientId
 
     }
     packaging {

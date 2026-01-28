@@ -15,6 +15,10 @@ kotlin = "2.3.0"
 # [추가] kotlinx 라이브러리 버전
 kotlinx-coroutines = "1.10.1"
 kotlinx-serialization = "1.8.0"
+# 카카오, 구글
+kakao = "2.20.1"
+androidx-credentials = "1.5.0"
+googleid = "1.2.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -35,6 +39,13 @@ compose-gradlePlugin = { group = "org.jetbrains.compose", name = "compose-gradle
 
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+# Kakao
+kakao-user = { module = "com.kakao.sdk:v2-user", version.ref = "kakao" }
+
+# Google Social Login (Credential Manager)
+androidx-credentials = { module = "androidx.credentials:credentials", version.ref = "androidx-credentials" }
+androidx-credentials-play-services = { module = "androidx.credentials:credentials-play-services-auth", version.ref = "androidx-credentials" }
+google-android-libraries-identity-googleid = { module = "com.google.android.libraries.identity.googleid:googleid", version.ref = "googleid" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -49,3 +60,10 @@ pingpong-android-application = { id = "pingpong.android.application", version = 
 pingpong-android-library = { id = "pingpong.android.library", version = "unspecified" }
 pingpong-kmp-library = { id = "pingpong.kmp.library", version = "unspecified" }
 pingpong-kmp-compose = { id = "pingpong.kmp.compose", version = "unspecified" }
+
+[bundles]
+social-login-google = [
+    "androidx-credentials",
+    "androidx-credentials-play-services",
+    "google-android-libraries-identity-googleid"
+]

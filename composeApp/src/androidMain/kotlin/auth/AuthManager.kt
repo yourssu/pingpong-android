@@ -15,10 +15,9 @@ actual class GoogleAuthManager(private val context: Context) {
 
     actual suspend fun signIn(): GoogleUser? = withContext(Dispatchers.IO) {
         try {
-            // Google Cloud Console에서 발급받은 '웹 애플리케이션' 클라이언트 ID를 넣으세요.
             val googleIdOption = GetGoogleIdOption.Builder()
                 .setFilterByAuthorizedAccounts(false)
-                .setServerClientId("959466703756-co3djr6qc398j3jumc2n1u93tlqs5j5n.apps.googleusercontent.com")
+                .setServerClientId(com.yourssu.pingpong.BuildConfig.GOOGLE_SERVER_CLIENT_ID)
                 .setAutoSelectEnabled(false)
                 .build()
 
