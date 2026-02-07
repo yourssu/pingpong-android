@@ -1,18 +1,17 @@
 plugins {
-    id("pingpong.kmp.library")
+    alias(libs.plugins.convention.kmp.library)
 }
-
-android {
-    namespace = "com.yourssu.pingpong.core.model"
-}
-
 
 kotlin {
+    androidLibrary {
+        namespace = "com.yourssu.pingpong.core.model"
+        compileSdk = libs.versions.projectCompileSdkVersion.get().toInt()
+        minSdk = libs.versions.projectMinSdkVersion.get().toInt()
+    }
+
     sourceSets {
         commonMain.dependencies {
             implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.kotlinx.serialization.json) // 필요시
         }
     }
 }
-

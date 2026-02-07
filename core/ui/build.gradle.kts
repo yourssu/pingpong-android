@@ -1,17 +1,17 @@
 plugins {
-    id("pingpong.kmp.library")
-    id("pingpong.kmp.compose")
+    alias(libs.plugins.convention.cmp.library)
 }
-
-android {
-    namespace = "com.yourssu.pingpong.core.ui"
-}
-
 
 kotlin {
+    androidLibrary {
+        namespace = "com.yourssu.pingpong.core.ui"
+        compileSdk = libs.versions.projectCompileSdkVersion.get().toInt()
+        minSdk = libs.versions.projectMinSdkVersion.get().toInt()
+    }
+
     sourceSets {
         commonMain.dependencies {
-            implementation(projects.core.designsystem) // 디자인 시스템 의존
+            implementation(projects.core.designsystem)
             implementation(projects.core.model)
         }
     }

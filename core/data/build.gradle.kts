@@ -1,12 +1,14 @@
 plugins {
-    id("pingpong.kmp.library")
-}
-
-android {
-    namespace = "com.yourssu.pingpong.core.data"
+    alias(libs.plugins.convention.kmp.library)
 }
 
 kotlin {
+    androidLibrary {
+        namespace = "com.yourssu.pingpong.core.data"
+        compileSdk = libs.versions.projectCompileSdkVersion.get().toInt()
+        minSdk = libs.versions.projectMinSdkVersion.get().toInt()
+    }
+
     sourceSets {
         commonMain.dependencies {
             implementation(projects.core.model)

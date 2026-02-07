@@ -26,10 +26,12 @@ dependencyResolutionManagement {
             }
         }
         mavenCentral()
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 }
 
 include(":composeApp")
+include(":androidApp")
 
 // Core 모듈 (도메인, 데이터, 디자인 시스템)
 include(":core:model")
