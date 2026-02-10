@@ -16,7 +16,7 @@ kotlin {
             implementation(projects.core.designsystem)
             implementation(projects.core.data)
 
-            implementation(libs.androidx.lifecycle.viewmodel.compose)
+            implementation(libs.jetbrains.compose.viewmodel)
         }
     }
 }

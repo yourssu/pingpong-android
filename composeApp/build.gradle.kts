@@ -11,8 +11,8 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.androidx.lifecycle.viewmodel.compose)
-            implementation(libs.androidx.lifecycle.runtime.compose)
+            implementation(libs.jetbrains.compose.viewmodel)
+            implementation(libs.jetbrains.lifecycle.compose)
 
             implementation(projects.core.designsystem)
             implementation(projects.core.model)
