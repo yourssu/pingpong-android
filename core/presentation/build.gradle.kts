@@ -1,10 +1,10 @@
 plugins {
-    alias(libs.plugins.convention.cmp.application)
+    alias(libs.plugins.convention.cmp.library)
 }
 
 kotlin {
     androidLibrary {
-        namespace = "com.yourssu.pingpong"
+        namespace = "com.yourssu.pingpong.core.presentation"
         compileSdk = libs.versions.projectCompileSdkVersion.get().toInt()
         minSdk = libs.versions.projectMinSdkVersion.get().toInt()
     }
@@ -12,14 +12,10 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.jetbrains.compose.viewmodel)
+            implementation(libs.jetbrains.lifecycle.viewmodel)
             implementation(libs.jetbrains.lifecycle.compose)
-
-            implementation(projects.core.designsystem)
+            implementation(libs.kotlinx.coroutines.core)
             implementation(projects.core.domain)
-            implementation(projects.core.presentation)
-        }
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
         }
     }
 }

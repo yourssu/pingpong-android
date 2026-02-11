@@ -1,25 +1,20 @@
 plugins {
-    alias(libs.plugins.convention.cmp.application)
+    alias(libs.plugins.convention.cmp.feature)
 }
 
 kotlin {
     androidLibrary {
-        namespace = "com.yourssu.pingpong"
+        namespace = "com.yourssu.pingpong.groupchat.presentation"
         compileSdk = libs.versions.projectCompileSdkVersion.get().toInt()
         minSdk = libs.versions.projectMinSdkVersion.get().toInt()
     }
 
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.jetbrains.compose.viewmodel)
-            implementation(libs.jetbrains.lifecycle.compose)
-
-            implementation(projects.core.designsystem)
             implementation(projects.core.domain)
+            implementation(projects.core.designsystem)
             implementation(projects.core.presentation)
-        }
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
+            implementation(projects.feature.groupchat.domain)
         }
     }
 }
