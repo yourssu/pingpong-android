@@ -7,6 +7,10 @@ kotlin {
         namespace = "com.yourssu.pingpong"
         compileSdk = libs.versions.projectCompileSdkVersion.get().toInt()
         minSdk = libs.versions.projectMinSdkVersion.get().toInt()
+
+        androidResources {
+            enable = true
+        }
     }
 
     sourceSets {
