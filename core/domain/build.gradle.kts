@@ -4,7 +4,7 @@ plugins {
 
 kotlin {
     androidLibrary {
-        namespace = "com.yourssu.pingpong.core.data"
+        namespace = "com.yourssu.pingpong.core.domain"
         compileSdk = libs.versions.projectCompileSdkVersion.get().toInt()
         minSdk = libs.versions.projectMinSdkVersion.get().toInt()
     }
@@ -12,7 +12,6 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.kotlinx.coroutines.core)
-            implementation(projects.core.domain)
         }
     }
 }

@@ -4,7 +4,7 @@ plugins {
 
 kotlin {
     androidLibrary {
-        namespace = "com.yourssu.pingpong.core.data"
+        namespace = "com.yourssu.pingpong.auth.domain"
         compileSdk = libs.versions.projectCompileSdkVersion.get().toInt()
         minSdk = libs.versions.projectMinSdkVersion.get().toInt()
     }

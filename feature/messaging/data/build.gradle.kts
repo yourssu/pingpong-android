@@ -4,7 +4,7 @@ plugins {
 
 kotlin {
     androidLibrary {
-        namespace = "com.yourssu.pingpong.core.data"
+        namespace = "com.yourssu.pingpong.messaging.data"
         compileSdk = libs.versions.projectCompileSdkVersion.get().toInt()
         minSdk = libs.versions.projectMinSdkVersion.get().toInt()
     }
@@ -13,6 +13,8 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.kotlinx.coroutines.core)
             implementation(projects.core.domain)
+            implementation(projects.core.data)
+            implementation(projects.feature.messaging.domain)
         }
     }
 }

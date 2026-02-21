@@ -1,18 +1,20 @@
 plugins {
-    alias(libs.plugins.convention.kmp.library)
+    alias(libs.plugins.convention.cmp.feature)
 }
 
 kotlin {
     androidLibrary {
-        namespace = "com.yourssu.pingpong.core.data"
+        namespace = "com.yourssu.pingpong.auth.presentation"
         compileSdk = libs.versions.projectCompileSdkVersion.get().toInt()
         minSdk = libs.versions.projectMinSdkVersion.get().toInt()
     }
 
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.kotlinx.coroutines.core)
             implementation(projects.core.domain)
+            implementation(projects.core.designsystem)
+            implementation(projects.core.presentation)
+            implementation(projects.feature.auth.domain)
         }
     }
 }
